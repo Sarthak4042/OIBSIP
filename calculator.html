@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarthak's Calculator</title>
+    <link rel="stylesheet" type="text/css" href="calculator.css">
+</head>
+<body>
+    <div class="cal-box">
+        <div class="cal-display" id="cal-displaynew">
+            <input type="text" id="cal-display" class="inputshow" disabled>
+        </div>
+        <div class="cal-buttons">
+            <button type="button" class="btn1" id="btn1" onclick="displaynumber(1)">1</button>
+            <button type="button" class="btn2" id="btn2" onclick="displaynumber(2)">2</button>
+            <button type="button" class="btn3" id="btn3" onclick="displaynumber(3)">3</button>
+            <button type="button" class="delete" id="delete" onclick="allclear()">AC</button>
+        </div>
+
+        <div class="cal-buttons2">
+            <button type="button" class="btn4" id="btn4" onclick="displaynumber(4)">4</button>
+            <button type="button" class="btn5" id="btn5" onclick="displaynumber(5)">5</button>
+            <button type="button" class="btn6" id="btn6" onclick="displaynumber(6)">6</button>
+            <button type="button" class="delete" id="delete" onclick="remove()">DELETE</button>
+        </div>
+
+        <div class="cal-buttons3">
+            <button type="button" class="btn7" id="btn7" onclick="displaynumber(7)">7</button>
+            <button type="button" class="btn8" id="btn8" onclick="displaynumber(8)">8</button>
+            <button type="button" class="btn9" id="btn9" onclick="displaynumber(9)">9</button>
+            <button type="button" class="equal" id="equal" onclick="calculate()">=</button>
+        </div>
+
+        <div class="cal-opts">
+            <button type="button" class="add" id="add" onclick="displaynumber('+')">+</button>
+            <button type="button" class="subtract" id="subtract" onclick="displaynumber('-')">-</button>
+            <button type="button" class="multiply" id="multiply" onclick="displaynumber('*')">x</button>
+            <button type="button" class="divide" id="divide" onclick="displaynumber('/')">/</button>
+            <button type="button" class="btn0" id="divide" onclick="displaynumber(0)">0</button>
+        </div>
+
+        <div class="cal-displayresult" id="cal-displayresult">
+            
+        </div>
+    </div>
+
+    <script>
+        function displaynumber(number){
+            var displaynum = document.getElementById("cal-display").value += number;
+        }
+
+        function remove(){
+            var displaycontent = document.getElementById("cal-display");
+            var currentValue = displaycontent.value;
+            displaycontent.value = currentValue.slice(0, -1);
+        }
+
+        function allclear(){
+            var display = document.getElementById("cal-display");
+            display.value = "";
+        }
+
+        function calculate(){
+            var caldis = document.getElementById("cal-display");
+            var result = eval(caldis.value);
+            var resuiltdisplay = document.getElementById("cal-displayresult").innerHTML =  result;
+            
+        }
+    </script>
+</body>
+</html>
